@@ -1,0 +1,21 @@
+# Editor and OS metadata
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+*.tmp
+
+# Local Codex/agent workspace state
+.agents/
+.codex/
+
+# direnv's local cache
+.direnv/
+
+# zsh completion caches and compiled shell files
+.config/zsh/.zcompdump*
+*.zwc
+
+# Neovim runtime state, plugin installs, and generated caches
+.config/nvim/.netrwhist

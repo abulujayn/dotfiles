@@ -1,0 +1,17 @@
+# Repository and development-shell metadata
+(^|/)\.git($|/)
+^/\.gitignore$
+^/\.gitmodules$
+^/\.stow-local-ignore$
+^/\.envrc$
+^/\.direnv($|/)
+^/flake\.nix$
+^/flake\.lock$
+^/README.*$
+
+# Runtime-generated Zsh caches
+^/\.config/zsh/\.zcompdump.*$
+.*\.zwc$
+
+# GTK 2 uses the top-level .gtkrc-2.0 file, not this former XDG location.
+^/\.config/gtk-2\.0($|/)

@@ -1,0 +1,14 @@
+[credential "github.com"]
+	helper =
+	helper = !gh auth git-credential
+
+[init]
+	defaultBranch = main
+
+[url "https://github.com/"]
+	insteadOf = gh:
+	insteadOf = github:
+
+[user]
+	name = abulujayn
+	email = zaeem@parkar.au
