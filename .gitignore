@@ -14,8 +14,9 @@ Thumbs.db
 .direnv/
 
 # zsh completion caches and compiled shell files
-.config/zsh/.zcompdump*
+.zcompdump*
 *.zwc
+histfile
 
 # Neovim runtime state, plugin installs, and generated caches
-.config/nvim/.netrwhist
+dot-config/nvim/.netrwhist

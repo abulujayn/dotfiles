@@ -14,7 +14,8 @@ hl.bind = function() end
 dofile(defaults)
 hl.bind = packaged_bind
 
-hl.monitor({ output = "eDP-1", scale = 1.25 })
+require("monitors")
+
 hl.config({
   general = { layout = "scrolling", col = { active_border = "rgba(81a1c1ff)" } },
   scrolling = {
