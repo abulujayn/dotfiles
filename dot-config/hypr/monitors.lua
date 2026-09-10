@@ -14,7 +14,7 @@ local function apply_layout()
     end
     last_profile = profile
 
-    if profile == "desk" then
+    if profile == "home-office" then
         hl.monitor({
           output = "desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000",
           mode = "2560x1440@100",
@@ -22,6 +22,7 @@ local function apply_layout()
           scale = 1,
           cm = "srgb",
         })
+        hl.workspace_rule({ workspace = "1", monitor = "desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000", default = true, persistent = true })
 
         hl.monitor({
           output = "desc:Dell Inc. DELL C2422HE 5W1XYG3",
@@ -30,6 +31,7 @@ local function apply_layout()
           scale = 1,
           cm = "srgb",
         })
+        hl.workspace_rule({ workspace = "2", monitor = "desc:Dell Inc. DELL C2422HE 5W1XYG3", default = true, persistent = true })
 
         hl.monitor({
           output = "desc:BOE NS140WUM-L61",
@@ -38,9 +40,19 @@ local function apply_layout()
           scale = 1.25,
           cm = "srgb",
         })
+        hl.workspace_rule({ workspace = "3", monitor = "desc:BOE NS140WUM-L61", default = true, persistent = true })
 
         hl.config({
-          cursor = { default_monitor = "desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000" },
+          cursor = { default_monitor = hl.get_monitor("desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000").name },
+        })
+
+        hl.timer(function()
+            hl.dispatch(hl.dsp.focus({ workspace = "3" }))
+            hl.dispatch(hl.dsp.focus({ workspace = "2" }))
+            hl.dispatch(hl.dsp.focus({ workspace = "1" }))
+        end, {
+            timeout = 300,
+            type = "oneshot",
         })
 
     else
