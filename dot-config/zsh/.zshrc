@@ -25,13 +25,13 @@ zstyle ':completion:*' squeeze-slashes true
 # dotfiles repository.
 source "$ZDOTDIR/plugins/zsh-completion-generator/zsh-completion-generator.plugin.zsh"
 
-# Locate nix-index through PATH and derive its immutable package root, avoiding
-# a generation-specific /nix/store path in the dotfiles.
+# nix-locate is supplied by nix-index-database's full-database wrapper. Derive
+# its immutable package root without embedding a generation-specific store path.
 () {
-  local nix_index_bin command_not_found
-  (( $+commands[nix-index] )) || return
-  nix_index_bin="${commands[nix-index]:A}"
-  command_not_found="${nix_index_bin:h:h}/etc/profile.d/command-not-found.sh"
+  local nix_locate_bin command_not_found
+  (( $+commands[nix-locate] )) || return
+  nix_locate_bin="${commands[nix-locate]:A}"
+  command_not_found="${nix_locate_bin:h:h}/etc/profile.d/command-not-found.sh"
   [[ -r "$command_not_found" ]] && source "$command_not_found"
 }
 
