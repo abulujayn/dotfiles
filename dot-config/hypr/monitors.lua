@@ -23,6 +23,7 @@ local function apply_layout()
           cm = "srgb",
         })
         hl.workspace_rule({ workspace = "1", monitor = "desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000", default = true, persistent = true })
+        hl.workspace_rule({ workspace = "4", monitor = "desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000" })
 
         hl.monitor({
           output = "desc:Dell Inc. DELL C2422HE 5W1XYG3",
@@ -32,12 +33,13 @@ local function apply_layout()
           cm = "srgb",
         })
         hl.workspace_rule({ workspace = "2", monitor = "desc:Dell Inc. DELL C2422HE 5W1XYG3", default = true, persistent = true })
+        hl.workspace_rule({ workspace = "5", monitor = "desc:Dell Inc. DELL C2422HE 5W1XYG3" })
 
         hl.monitor({
           output = "desc:BOE NS140WUM-L61",
           mode = "1920x1200@60",
           position = "6016x831",
-          scale = 1.25,
+          scale = 1.5,
           cm = "srgb",
         })
         hl.workspace_rule({ workspace = "3", monitor = "desc:BOE NS140WUM-L61", default = true, persistent = true })
@@ -46,21 +48,12 @@ local function apply_layout()
           cursor = { default_monitor = hl.get_monitor("desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000").name },
         })
 
-        hl.timer(function()
-            hl.dispatch(hl.dsp.focus({ workspace = "3" }))
-            hl.dispatch(hl.dsp.focus({ workspace = "2" }))
-            hl.dispatch(hl.dsp.focus({ workspace = "1" }))
-        end, {
-            timeout = 300,
-            type = "oneshot",
-        })
-
     else
         hl.monitor({
             output = "eDP-1",
             mode = "1920x1200@60",
             position = "0x0",
-            scale = 1.25,
+            scale = 1.5,
             cm = "srgb",
         })
     end
@@ -79,6 +72,7 @@ local function schedule_layout()
 end
 
 hl.on("hyprland.start", apply_layout)
+hl.on("config.reloaded", apply_layout)
 
 hl.on("monitor.added", schedule_layout)
 hl.on("monitor.removed", schedule_layout)
