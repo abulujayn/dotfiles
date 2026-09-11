@@ -1,5 +1,15 @@
-local last_profile = nil
+local function assign_workspaces(monitor, first, last, persistent)
+    for workspace = first, last do
+        hl.workspace_rule({
+            workspace = tostring(workspace),
+            output = monitor,
+            default = workspace == first,
+            persistent = persistent,
+        })
+    end
+end
 
+local last_profile = nil
 local function apply_layout()
     local profile
 
@@ -23,7 +33,7 @@ local function apply_layout()
           cm = "srgb",
         })
         hl.workspace_rule({ workspace = "1", monitor = "desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000", default = true, persistent = true })
-        hl.workspace_rule({ workspace = "4", monitor = "desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000" })
+        assign_workspaces("desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000", 4, 6, true)
 
         hl.monitor({
           output = "desc:Dell Inc. DELL C2422HE 5W1XYG3",
@@ -33,16 +43,17 @@ local function apply_layout()
           cm = "srgb",
         })
         hl.workspace_rule({ workspace = "2", monitor = "desc:Dell Inc. DELL C2422HE 5W1XYG3", default = true, persistent = true })
-        hl.workspace_rule({ workspace = "5", monitor = "desc:Dell Inc. DELL C2422HE 5W1XYG3" })
+        assign_workspaces("desc:Dell Inc. DELL C2422HE 5W1XYG3", 7, 8, true)
 
         hl.monitor({
-          output = "desc:BOE NS140WUM-L61",
+          output = "eDP-1",
           mode = "1920x1200@60",
           position = "6016x831",
-          scale = 1.5,
+          scale = 1.25,
           cm = "srgb",
         })
-        hl.workspace_rule({ workspace = "3", monitor = "desc:BOE NS140WUM-L61", default = true, persistent = true })
+        hl.workspace_rule({ workspace = "3", monitor = "eDP-1", default = true, persistent = true })
+        assign_workspaces("eDP-1", 9, 10, true)
 
         hl.config({
           cursor = { default_monitor = hl.get_monitor("desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000").name },
@@ -53,8 +64,13 @@ local function apply_layout()
             output = "eDP-1",
             mode = "1920x1200@60",
             position = "0x0",
-            scale = 1.5,
+            scale = 1.25,
             cm = "srgb",
+        })
+        assign_workspaces("eDP-1", 1, 5, false)
+
+        hl.config({
+          cursor = { default_monitor = hl.get_monitor("eDP-1").name },
         })
     end
 end
