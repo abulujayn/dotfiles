@@ -1,0 +1,17 @@
+[widget.clock]
+format = "{:%a %d/%m} • {:%R}"
+tooltip_format = "{:%T}"
+
+[widget.battery]
+display_mode = "graphic"
+show_label = false
+
+[widget.control-center]
+glyph = "toggle-right"
+
+[bar.default]
+radius = 0
+margin_ends = 0
+start = ["wallpaper", "workspaces", "active_window"]
+center = ["weather", "spacer", "clock", "spacer", "clipboard", "notifications", "tray"]
+end    = ["network", "bluetooth", "battery", "control-center", "session"]

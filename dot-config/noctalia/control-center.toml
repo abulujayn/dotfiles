@@ -1,0 +1,2 @@
+[control_center]
+hidden_tabs = ["media", "monitor", "notifications"]

@@ -1,0 +1,17 @@
+[theme]
+mode = "dark"
+source = "builtin"
+builtin = "Nord"
+
+[wallpaper]
+directory = "~/.config/wallpapers"
+
+[shell]
+time_format = "{:%R}" # 24-hour time
+polkit_agent = true
+
+[lockscreen]
+fingerprint = true
+
+[location]
+address = "Canberra, Australia"
