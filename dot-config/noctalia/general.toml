@@ -10,6 +10,12 @@ directory = "~/.config/wallpapers"
 time_format = "{:%R}" # 24-hour time
 polkit_agent = true
 
+[shell.animation]
+enabled = false
+
+[shell.greeter_sync]
+auto_sync = true
+
 [lockscreen]
 fingerprint = true
 
