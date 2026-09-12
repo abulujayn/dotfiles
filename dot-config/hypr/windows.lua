@@ -1,3 +1,11 @@
+-- Firefox
+hl.window_rule({
+    match = {
+        class = "firefox",
+    },
+    scrolling_width = 1.0,
+})
+
 -- Windows VM
 hl.on("window.title", function(w)
     if not w or w.class ~= "virt-viewer" or (w.title ~= "windows (1)" and w.title ~= "windows (2)") or w.fullscreen == 2 then
