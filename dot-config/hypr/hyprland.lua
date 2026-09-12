@@ -10,7 +10,7 @@ hl.config({
       }
   },
   scrolling = {
-    column_width = 1.0,
+    column_width = 0.5,
     fullscreen_on_one_column = false,
     explicit_column_widths = "0.33, 0.5, 1.0",
     follow_min_visible = 1.0,

@@ -1,12 +1,3 @@
--- Kitty
-hl.window_rule({
-    name = "kitty_starting_width",
-    match = {
-        class = "kitty"
-    },
-    scrolling_width = 0.5
-})
-
 -- Windows VM
 hl.on("window.title", function(w)
     if not w or w.class ~= "virt-viewer" or (w.title ~= "windows (1)" and w.title ~= "windows (2)") or w.fullscreen == 2 then
