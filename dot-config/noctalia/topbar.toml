@@ -1,6 +1,38 @@
+[widget.divider]
+type = "text"
+text = "|"
+[widget.divider2]
+type = "text"
+text = "•"
+
 [widget.clock]
 format = "{:%a %d/%m} • {:%R}"
 tooltip_format = "{:%T}"
+
+[widget.cpu_label]
+type = "text"
+text = "cpu"
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"
+visualization = "graph"
+show_glyph = false
+[widget.cpu_temp]
+type = "sysmon"
+stat = "cpu_temp"
+show_glyph = false
+visualization = "none"
+
+[widget.memory_label]
+type = "text"
+text = "mem"
+[widget.memory]
+type = "sysmon"
+stat = "ram_pct"
+show_glyph = false
+
+[widget.network]
+show_label = false
 
 [widget.battery]
 display_mode = "graphic"
@@ -14,4 +46,4 @@ radius = 0
 margin_ends = 0
 start = ["wallpaper", "workspaces", "active_window"]
 center = ["weather", "spacer", "clock", "spacer", "clipboard", "notifications", "tray"]
-end    = ["network", "bluetooth", "battery", "control-center", "session"]
+end    = ["memory_label", "memory", "divider2", "cpu_label", "cpu", "cpu_temp", "divider", "network", "bluetooth", "battery", "control-center"]

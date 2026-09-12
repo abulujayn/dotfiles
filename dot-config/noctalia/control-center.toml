@@ -1,2 +1,3 @@
 [control_center]
 hidden_tabs = ["media", "monitor", "notifications"]
+width = 1200
