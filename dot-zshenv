@@ -1,10 +1,6 @@
 # Keep all per-user Zsh configuration under XDG config.
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 
-# Prevent NixOS's generated global Zsh startup files from reintroducing the
-# system-managed shell configuration after this dotfiles setup is installed.
-setopt no_global_rcs
-
 # >>> Codex installer >>>
 export PATH="/home/abulujayn/.local/bin:$PATH"
 # <<< Codex installer <<<

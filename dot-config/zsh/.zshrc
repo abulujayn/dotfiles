@@ -25,20 +25,20 @@ zstyle ':completion:*' squeeze-slashes true
 # dotfiles repository.
 source "$ZDOTDIR/plugins/zsh-completion-generator/zsh-completion-generator.plugin.zsh"
 
-# nix-locate is supplied by nix-index-database's full-database wrapper. Derive
-# its immutable package root without embedding a generation-specific store path.
-() {
-  local nix_locate_bin command_not_found
-  (( $+commands[nix-locate] )) || return
-  nix_locate_bin="${commands[nix-locate]:A}"
-  command_not_found="${nix_locate_bin:h:h}/etc/profile.d/command-not-found.sh"
-  [[ -r "$command_not_found" ]] && source "$command_not_found"
+# Load a Zsh plugin from the file registered by its Fedora RPM.  Keeping the
+# package-owned path out of this repository avoids tying the configuration to
+# a particular Fedora release or architecture.
+source_rpm_file() {
+  local package="$1" filename="$2" file
+  (( $+commands[rpm] )) || return 0
+  file="$(rpm -ql -- "$package" 2>/dev/null | command grep -F "/$filename" | command head -n 1)"
+  [[ -r "$file" ]] && source "$file"
 }
 
 zstyle ':omz:plugins:ssh-agent' quiet yes
 zstyle ':omz:plugins:ssh-agent' lazy yes
 ZSH_THEME=""
-plugins=(command-not-found git brew ssh ssh-agent npm extract dotenv gh magic-enter safe-paste)
+plugins=(command-not-found git ssh ssh-agent npm extract dotenv gh magic-enter safe-paste)
 source "$ZSH/oh-my-zsh.sh"
 
 # Oh My Zsh replaces matcher-list while loading its defaults.
@@ -50,15 +50,28 @@ zstyle ':completion:*' original true
 zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
 zstyle ':completion:*' squeeze-slashes true
 
-source "${ZSH_AUTOSUGGESTIONS_FILE:-/run/current-system/sw/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh}" 2>/dev/null
 ZSH_AUTOSUGGEST_STRATEGY=(history)
-source "${POWERLEVEL10K_FILE:-/run/current-system/sw/share/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme}" 2>/dev/null
-source "$ZDOTDIR/p10k-base.zsh"
-source "$ZDOTDIR/p10k.zsh"
-source "${ZSH_HISTORY_SUBSTRING_SEARCH_FILE:-/run/current-system/sw/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh}" 2>/dev/null
-bindkey "^[[A" history-substring-search-up
-bindkey "^[[B" history-substring-search-down
-source "${ZSH_FAST_SYNTAX_HIGHLIGHTING_FILE:-/run/current-system/sw/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh}" 2>/dev/null
+source_rpm_file zsh-autosuggestions zsh-autosuggestions.zsh
+
+# These upstream projects are tracked as shallow submodules because Fedora
+# does not provide maintained packages for them.
+if [[ -r "$ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
+  source "$ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme"
+  source "$ZDOTDIR/p10k-base.zsh"
+  source "$ZDOTDIR/p10k.zsh"
+fi
+
+if [[ -r "$ZDOTDIR/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh" ]]; then
+  source "$ZDOTDIR/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"
+  bindkey "^[[A" history-substring-search-up
+  bindkey "^[[B" history-substring-search-down
+else
+  bindkey "^[[A" history-search-backward
+  bindkey "^[[B" history-search-forward
+fi
+
+# Load this last, as required by zsh-syntax-highlighting.
+source_rpm_file zsh-syntax-highlighting zsh-syntax-highlighting.zsh
 (( $+commands[direnv] )) && eval "$(direnv hook zsh)"
 alias vi=nvim
 alias vim=nvim
