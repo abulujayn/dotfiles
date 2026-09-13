@@ -26,7 +26,7 @@ hl.on("window.title", function(w)
     elseif w.title == "windows (2)" then
         hl.dispatch(hl.dsp.window.move({
             window = w,
-            workspace = "5",
+            workspace = "7",
         }))
     end
 

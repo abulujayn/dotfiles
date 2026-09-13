@@ -2,7 +2,7 @@ local function assign_workspaces(monitor, first, last, persistent)
     for workspace = first, last do
         hl.workspace_rule({
             workspace = tostring(workspace),
-            output = monitor,
+            monitor = monitor,
             default = workspace == first,
             persistent = persistent,
         })
@@ -49,7 +49,7 @@ local function apply_layout()
           output = "eDP-1",
           mode = "1920x1200@60",
           position = "6016x831",
-          scale = 1.25,
+          scale = 1.5,
           cm = "srgb",
         })
         hl.workspace_rule({ workspace = "3", monitor = "eDP-1", default = true, persistent = true })
