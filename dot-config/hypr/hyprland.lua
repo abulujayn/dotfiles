@@ -1,13 +1,17 @@
+hl.env("XCURSOR_THEME", "Nordzy-cursors")
+hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_SIZE", "24")
+
 hl.config({
   general = {
-      layout = "scrolling",
+    layout = "scrolling",
 
-      border_size = 2,
-      gaps_in = 3,
-      gaps_out = 9,
-      col = {
-          active_border = "rgba(81a1c1ff)"
-      }
+    border_size = 2,
+    gaps_in = 3,
+    gaps_out = 9,
+    col = {
+      active_border = "rgba(81a1c1ff)"
+    }
   },
   scrolling = {
     column_width = 0.5,
@@ -16,17 +20,19 @@ hl.config({
     follow_min_visible = 1.0,
   },
   decoration = {
-      rounding = 0
+    rounding = 0
   },
   input = {
-      touchpad = {
-          natural_scroll = true
-      }
+    touchpad = {
+      natural_scroll = true
+    }
   },
   animations = {
-      enabled = false,
+    enabled = false,
   },
 })
+
+
 
 require("monitors")
 require("keybinds")
