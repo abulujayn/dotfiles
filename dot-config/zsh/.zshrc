@@ -6,6 +6,7 @@ export GENCOMPL_FPATH="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/completion-generator"
 export GENCOMPL_PY="${GENCOMPL_PY:-python3}"
 export XCURSOR_THEME="Nordzy-cursors"
 export XCURSOR_SIZE=24
+export XCURSOR_PATH="$HOME/.local/share/icons:/usr/share/icons"
 HISTFILE="$ZDOTDIR/histfile"
 HISTSIZE=1000
 SAVEHIST=5000
