@@ -1,7 +1,7 @@
--- Firefox
+-- Full-width apps
 hl.window_rule({
     match = {
-        class = "firefox",
+        class = "org.mozilla.firefox|org.keepassxc.KeePassXC",
     },
     scrolling_width = 1.0,
 })
