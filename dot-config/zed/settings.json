@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "languages": {
+    "Lua": {
+      "tab_size": 4
+    }
+  },
   "tab_size": 2,
   "disable_ai": true,
   "title_bar": {

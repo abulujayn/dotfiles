@@ -13,20 +13,38 @@ hl.on("window.title", function(w)
     end
 
     for _, tag in ipairs(w.tags) do
-        if tag == "windows-init" then
+        if tag == "window-setup-complete" then
             return
         end
     end
 
     if w.title == "windows (1)" then
+        local workspace = Unused_workspace()
+        local monitor = "eDP-1"
+        if Display_profile == "home-office" then
+            monitor = hl.get_monitor("desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000").name
+        end
+        hl.workspace_rule({
+            workspace = workspace,
+            monitor = monitor,
+        })
         hl.dispatch(hl.dsp.window.move({
             window = w,
-            workspace = "4",
+            workspace = workspace,
         }))
     elseif w.title == "windows (2)" then
+        local workspace = Unused_workspace()
+        local monitor = "eDP-1"
+        if Display_profile == "home-office" then
+            monitor = hl.get_monitor("desc:Dell Inc. DELL C2422HE 5W1XYG3").name
+        end
+        hl.workspace_rule({
+            workspace = workspace,
+            monitor = monitor,
+        })
         hl.dispatch(hl.dsp.window.move({
             window = w,
-            workspace = "7",
+            workspace = workspace,
         }))
     end
 
@@ -37,6 +55,23 @@ hl.on("window.title", function(w)
     }))
     hl.dispatch(hl.dsp.window.tag({
         window = w,
-        tag = "+windows-init"
+        tag = "+window-setup-complete"
     }))
+    hl.dispatch(hl.dsp.window.tag({
+        window = w,
+        tag = "+winvm"
+    }))
+end)
+hl.on("window.close", function(w)
+    local winvm = false
+    for _, tag in ipairs(w.tags) do
+        if tag == "winvm" then
+            winvm = true
+        end
+    end
+    if not winvm then
+        return
+    end
+
+    Schedule_reload()
 end)
