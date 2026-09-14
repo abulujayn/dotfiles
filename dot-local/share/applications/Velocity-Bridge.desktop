@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Velocity Bridge
+Comment=iOS to Linux Clipboard & Image Sync
+Exec=/usr/bin/velocity_tauri
+Icon=/home/abulujayn/.local/share/icons/hicolor/256x256/apps/velocity-bridge.png
+StartupWMClass=velocity_tauri
+Terminal=false
+Categories=Utility;Network;
+Keywords=clipboard;sync;ios;
+Actions=Uninstall;
+
+[Desktop Action Uninstall]
+Name=Uninstall Velocity Bridge
+Exec=/home/abulujayn/.local/bin/velocity-bridge-uninstall
