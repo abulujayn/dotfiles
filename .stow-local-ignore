@@ -13,5 +13,8 @@
 ^/\.config/zsh/\.zcompdump.*$
 .*\.zwc$
 
+# Desktop environment MIME cache
+.*\.cache$
+
 # GTK 2 uses the top-level .gtkrc-2.0 file, not this former XDG location.
 ^/\.config/gtk-2\.0($|/)
