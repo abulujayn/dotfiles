@@ -16,25 +16,6 @@ enabled = false
 [shell.greeter_sync]
 auto_sync = true
 
-[idle]
-pre_action_fade_seconds = 0
-
-[idle.behavior.display-off]
-timeout = 600
-action = "screen_off"
-enabled = true
-
-[idle.behavior.suspend-on-battery]
-timeout = 1200
-action = "command"
-command = "if busctl --system get-property org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower OnBattery | grep -q 'b true'; then noctalia msg session lock-and-suspend; fi"
-enabled = true
-
-[hooks]
-battery_charging = "noctalia msg config-reload"
-battery_discharging = "noctalia msg config-reload"
-battery_plugged = "noctalia msg config-reload"
-
 [lockscreen]
 fingerprint = true
 
