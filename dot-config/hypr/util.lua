@@ -1,3 +1,4 @@
+Default_workspaces = {}
 
 function Unused_workspace()
     for workspaceNum = 1, 10 do

@@ -12,36 +12,48 @@ local function apply_layout()
     last_profile = Display_profile
 
     if Display_profile == "home-office" then
+        local monitor = hl.get_monitor("desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000").name
         hl.monitor({
-            output = "desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000",
+            output = monitor,
             mode = "2560x1440@100",
             position = "3456x-250",
             scale = 1,
             cm = "srgb",
         })
-        hl.workspace_rule({ workspace = "1", monitor = "desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000", default = true, persistent = true })
+        hl.workspace_rule({ workspace = "1", monitor = monitor, default = true, persistent = true })
 
+        monitor = hl.get_monitor("desc:Dell Inc. DELL C2422HE 5W1XYG3").name
         hl.monitor({
-            output = "desc:Dell Inc. DELL C2422HE 5W1XYG3",
+            output = monitor,
             mode = "1920x1080@60",
             position = "1536x0",
             scale = 1,
             cm = "srgb",
         })
-        hl.workspace_rule({ workspace = "2", monitor = "desc:Dell Inc. DELL C2422HE 5W1XYG3", default = true, persistent = true })
+        hl.workspace_rule({ workspace = "2", monitor = monitor, default = true, persistent = true })
+        Default_workspaces[monitor] = "2"
 
+        monitor = "eDP-1"
         hl.monitor({
-            output = "eDP-1",
+            output = monitor,
             mode = "1920x1200@60",
             position = "6016x831",
             scale = 1.5,
             cm = "srgb",
         })
-        hl.workspace_rule({ workspace = "3", monitor = "eDP-1", default = true, persistent = true })
+        hl.workspace_rule({ workspace = "3", monitor = monitor, default = true, persistent = true })
+        Default_workspaces[monitor] = "3"
 
-        hl.config({
-            cursor = { default_monitor = hl.get_monitor("desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000").name },
+        monitor = hl.get_monitor("desc:Invalid Vendor Codename - RTK 0x0000 0x01010101").name
+        hl.monitor({
+            output = monitor,
+            mode = "2560x1600@144.00Hz",
+            position = "4096x1190",
+            scale = 1.67,
+            cm = "srgb",
         })
+        hl.workspace_rule({ workspace = "4", monitor = monitor, default = true, persistent = true })
+        Default_workspaces[monitor] = "4"
     else
         hl.monitor({
             output = "eDP-1",
@@ -50,22 +62,7 @@ local function apply_layout()
             scale = 1.25,
             cm = "srgb",
         })
-
-        hl.config({
-            cursor = { default_monitor = hl.get_monitor("eDP-1").name },
-        })
     end
-end
-
-local apply_timer = hl.timer(apply_layout, {
-    timeout = 300,
-    type = "oneshot",
-})
-apply_timer:set_enabled(false)
-
-local function schedule_layout()
-    apply_timer:set_enabled(false)
-    apply_timer:set_enabled(true)
 end
 
 hl.on("hyprland.start", apply_layout)

@@ -75,3 +75,15 @@ hl.on("window.close", function(w)
 
     Schedule_reload()
 end)
+
+-- Auto return to default workspace
+hl.on("window.close", function(w)
+    if #hl.get_windows({ workspace = w.workspace }) == 1 then
+        local default_workspace = Default_workspaces[w.monitor.name] or "1"
+        local current_monitor = hl.get_active_monitor().name
+        hl.dispatch(hl.dsp.focus({ workspace = default_workspace }))
+        if current_monitor ~= w.monitor.name then
+            hl.dispatch(hl.dsp.focus({ monitor = current_monitor }))
+        end
+    end
+end)
