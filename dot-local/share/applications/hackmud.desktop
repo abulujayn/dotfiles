@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=hackmud
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/469920
+Icon=steam_icon_469920
+Terminal=false
+Type=Application
+Categories=Game;
