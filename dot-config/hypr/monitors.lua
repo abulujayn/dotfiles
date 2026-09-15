@@ -22,6 +22,17 @@ local function apply_layout()
         })
         hl.workspace_rule({ workspace = "1", monitor = monitor, default = true, persistent = true })
 
+        monitor = hl.get_monitor("desc:Invalid Vendor Codename - RTK 0x0000 0x01010101").name
+        hl.monitor({
+            output = monitor,
+            mode = "2560x1600@144.00Hz",
+            position = "4096x1190",
+            scale = 1.67,
+            cm = "srgb",
+        })
+        hl.workspace_rule({ workspace = "2", monitor = monitor, default = true, persistent = true })
+        Default_workspaces[monitor] = "2"
+
         monitor = hl.get_monitor("desc:Dell Inc. DELL C2422HE 5W1XYG3").name
         hl.monitor({
             output = monitor,
@@ -30,8 +41,8 @@ local function apply_layout()
             scale = 1,
             cm = "srgb",
         })
-        hl.workspace_rule({ workspace = "2", monitor = monitor, default = true, persistent = true })
-        Default_workspaces[monitor] = "2"
+        hl.workspace_rule({ workspace = "3", monitor = monitor, default = true, persistent = true })
+        Default_workspaces[monitor] = "3"
 
         monitor = "eDP-1"
         hl.monitor({
@@ -39,17 +50,6 @@ local function apply_layout()
             mode = "1920x1200@60",
             position = "6016x831",
             scale = 1.5,
-            cm = "srgb",
-        })
-        hl.workspace_rule({ workspace = "3", monitor = monitor, default = true, persistent = true })
-        Default_workspaces[monitor] = "3"
-
-        monitor = hl.get_monitor("desc:Invalid Vendor Codename - RTK 0x0000 0x01010101").name
-        hl.monitor({
-            output = monitor,
-            mode = "2560x1600@144.00Hz",
-            position = "4096x1190",
-            scale = 1.67,
             cm = "srgb",
         })
         hl.workspace_rule({ workspace = "4", monitor = monitor, default = true, persistent = true })
