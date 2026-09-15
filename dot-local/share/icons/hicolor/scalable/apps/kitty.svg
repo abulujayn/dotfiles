@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" version="1.1" viewBox="-18.3 -18.3 292.6 292.6">
-  <rect x="4" y="4" width="248" height="248" ry="57.108" fill="#252525" stroke="#fff" stroke-width="8"/>
-  <path d="m42.918 164.35v-17.664l29.63-15.718q3.7575-1.9482 8.2649-2.9875-4.5075-0.90906-8.2649-2.857l-29.63-15.718v-17.804l49.381 27.02v18.572z" fill="#fff"/>
-  <path d="m213.07 164.35-49.381-27.02v-18.572l49.381-27.136v17.664l-29.63 15.718q-3.7575 1.9482-8.265 2.9875 4.5075 0.90906 8.265 2.857l29.63 15.718z" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <title>Kitty app icon</title>
+  <path fill="#e7e7e7" d="M151 46h210c65 0 102 38 102 104v212c0 66-37 103-102 103H151c-66 0-102-37-102-103V150C49 84 85 46 151 46Z"/>
+  <path fill="#303030" d="M151 63h210c53 0 83 31 83 87v212c0 55-30 77-83 77H151c-54 0-83-30-83-85V150c0-56 29-87 83-87Z"/>
+  <path fill="none" stroke="#f7f7f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="11" d="m127 165 38 19-38 20"/>
+  <path fill="none" stroke="#626262" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="m187 164 14-14 14 14M297 164l14-14 14 14"/>
+  <path fill="none" stroke="#f7f7f7" stroke-linecap="round" stroke-width="11" d="M237 207h38"/>
+  <path fill="none" stroke="#626262" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" d="m385 165-38 19 38 20"/>
 </svg>
