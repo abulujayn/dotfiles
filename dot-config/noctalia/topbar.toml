@@ -44,9 +44,12 @@ glyph = "toggle-right"
 [widget.pkgupdates]
 type = "tordex/system-updater:status"
 
+[widget.tailscale]
+type = "abulujayn/tailscale:status"
+
 [bar.default]
 radius = 0
 margin_ends = 0
 start = ["workspaces", "pkgupdates", "clipboard", "notifications", "tray"]
 center = ["weather", "spacer", "clock", "spacer"]
-end    = ["memory_label", "memory", "divider2", "cpu_label", "cpu", "cpu_temp", "divider", "network", "bluetooth", "battery", "control-center"]
+end    = ["memory_label", "memory", "divider2", "cpu_label", "cpu", "cpu_temp", "divider", "tailscale", "network", "bluetooth", "battery", "control-center"]

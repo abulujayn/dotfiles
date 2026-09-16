@@ -64,7 +64,8 @@ hl.on("window.close", function(w)
         return
     end
 
-    Schedule_reload()
+    Reset_workspace_rules()
+    Apply_workspace_rules()
 end)
 
 -- Auto return to default workspace

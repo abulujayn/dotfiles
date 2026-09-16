@@ -39,9 +39,8 @@ hl.config({
     },
 })
 
-
-require("util")
 require("keybinds")
+require("workspaces")
 require("monitors")
 require("windows")
 
