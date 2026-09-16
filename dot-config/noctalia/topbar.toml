@@ -41,9 +41,12 @@ show_label = false
 [widget.control-center]
 glyph = "toggle-right"
 
+[widget.pkgupdates]
+type = "tordex/system-updater:status"
+
 [bar.default]
 radius = 0
 margin_ends = 0
-start = ["wallpaper", "workspaces", "active_window"]
-center = ["weather", "spacer", "clock", "spacer", "clipboard", "notifications", "tray"]
+start = ["workspaces", "pkgupdates", "clipboard", "notifications", "tray"]
+center = ["weather", "spacer", "clock", "spacer"]
 end    = ["memory_label", "memory", "divider2", "cpu_label", "cpu", "cpu_temp", "divider", "network", "bluetooth", "battery", "control-center"]
