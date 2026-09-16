@@ -8,12 +8,12 @@ hl.window_rule({
 
 -- Windows VM
 hl.on("window.title", function(w)
-    if not w or w.class ~= "virt-viewer" or (w.title ~= "windows (1)" and w.title ~= "windows (2)") or w.fullscreen == 2 then
+    if not w or w.class ~= "virt-viewer" or (w.title ~= "windows (1)" and w.title ~= "windows (2)") then
         return
     end
 
     for _, tag in ipairs(w.tags) do
-        if tag == "window-setup-complete" then
+        if tag == "winvm" then
             return
         end
     end
@@ -48,15 +48,6 @@ hl.on("window.title", function(w)
         }))
     end
 
-    hl.dispatch(hl.dsp.send_shortcut({
-        window = w,
-        mods = "",
-        key = "F11",
-    }))
-    hl.dispatch(hl.dsp.window.tag({
-        window = w,
-        tag = "+window-setup-complete"
-    }))
     hl.dispatch(hl.dsp.window.tag({
         window = w,
         tag = "+winvm"

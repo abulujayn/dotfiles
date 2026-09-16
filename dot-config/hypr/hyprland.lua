@@ -13,13 +13,15 @@ hl.config({
         gaps_out = 9,
         col = {
             active_border = "rgba(81a1c1ff)"
-        }
+        },
     },
     scrolling = {
         column_width = 0.5,
         fullscreen_on_one_column = false,
-        explicit_column_widths = "0.33, 0.5, 1.0",
+        explicit_column_widths = "0.5, 1.0",
         follow_min_visible = 1.0,
+        wrap_focus = false,
+        focus_fit_method = true,
     },
     decoration = {
         rounding = 0
