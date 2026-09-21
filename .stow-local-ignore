@@ -5,6 +5,7 @@
 ^/\.stow-local-ignore$
 ^/\.envrc$
 ^/\.direnv($|/)
+^/\.luarc\.json$
 ^/flake\.nix$
 ^/flake\.lock$
 ^/README.*$
