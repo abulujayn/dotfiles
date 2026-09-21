@@ -7,6 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "restore_on_startup": "launchpad",
+  "ssh_connections": [
+    {
+      "host": "a01",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/abulujayn/nixfiles/./"
+          ]
+        }
+      ]
+    }
+  ],
   "languages": {
     "Lua": {
       "tab_size": 4
