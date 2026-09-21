@@ -35,7 +35,7 @@ function Apply_workspace_rules()
         table.insert(Workspace_rules, hl.workspace_rule({ workspace = "1", monitor = monitor, default = true }))
     elseif Display_profile == "dual-monitor" then
         monitor = "eDP-1"
-        table.insert(Workspace_rules, hl.workspace_rule({ workspace = "2", monitor = monitor, default = true}))
+        table.insert(Workspace_rules, hl.workspace_rule({ workspace = "2", monitor = monitor, default = true }))
         Default_workspaces[monitor] = "2"
 
         monitor = hl.get_monitor("desc:Invalid Vendor Codename - RTK 0x0000 0x01010101").name
@@ -48,4 +48,27 @@ function Apply_workspace_rules()
             cm = "srgb",
         })
     end
+end
+
+function Move_to_workspace(workspace)
+    local w = hl.get_active_window()
+
+    if not w then
+        return
+    end
+
+    if w.floating then
+        hl.dispatch(hl.dsp.window.move({
+            workspace = workspace
+        }))
+        return
+    end
+
+    local width = w.layout.column.width
+    hl.dispatch(hl.dsp.window.move({
+        workspace = workspace
+    }))
+    hl.dispatch(
+        hl.dsp.layout("colresize " .. width)
+    )
 end

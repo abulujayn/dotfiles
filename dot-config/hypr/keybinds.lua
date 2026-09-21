@@ -43,16 +43,16 @@ hl.bind(mainMod .. " + minus", hl.dsp.layout("colresize -0.05"), { repeating = t
 hl.bind(mainMod .. " + equal", hl.dsp.layout("colresize +0.05"), { repeating = true })
 
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("scratchpad"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:scratchpad" }))
+hl.bind(mainMod .. " + SHIFT + S", function() Move_to_workspace("special:scratchpad") end)
 for workspace = 1, 10 do
     local key = workspace % 10
     hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = workspace }))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = workspace }))
+    hl.bind(mainMod .. " + SHIFT + " .. key, function() Move_to_workspace(workspace) end)
 end
 hl.bind(mainMod .. " + CTRL + right", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + CTRL + left", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mainMod .. " + CTRL + SHIFT + right", hl.dsp.window.move({ workspace = "e+1" }))
-hl.bind(mainMod .. " + CTRL + SHIFT + left", hl.dsp.window.move({ workspace = "e-1" }))
+hl.bind(mainMod .. " + CTRL + SHIFT + right", function() Move_to_workspace("e+1") end)
+hl.bind(mainMod .. " + CTRL + SHIFT + left", function() Move_to_workspace("e-1") end)
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 for _, binding in ipairs({

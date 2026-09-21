@@ -39,9 +39,9 @@ hl.config({
     },
 })
 
-require("keybinds")
+require("windows")
 require("workspaces")
 require("monitors")
-require("windows")
+require("keybinds")
 
 hl.on("hyprland.start", function() hl.exec_cmd("noctalia") end)
