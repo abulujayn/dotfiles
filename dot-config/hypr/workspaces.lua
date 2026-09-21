@@ -2,7 +2,7 @@ Default_workspaces = {}
 Workspace_rules = {}
 
 function Unused_workspace()
-    for workspaceNum = 1, 10 do
+    for workspaceNum = #Workspace_rules + 1, 10 do
         if not hl.get_workspace(tostring(workspaceNum)) then
             return tostring(workspaceNum)
         end
@@ -11,7 +11,7 @@ end
 
 function Reset_workspace_rules()
     for _, rule in ipairs(Workspace_rules) do
-        rule.set_enabled(false)
+        rule:set_enabled(false)
     end
     Workspace_rules = {}
 end
@@ -20,19 +20,26 @@ function Apply_workspace_rules()
     local monitor
     if Display_profile == "home-office" then
         monitor = "eDP-1"
-        hl.workspace_rule({ workspace = "4", monitor = monitor, default = true, persistent = true })
+        table.insert(Workspace_rules, hl.workspace_rule({ workspace = "4", monitor = monitor, default = true }))
         Default_workspaces[monitor] = "4"
 
         monitor = hl.get_monitor("desc:Dell Inc. DELL C2422HE 5W1XYG3").name
-        hl.workspace_rule({ workspace = "3", monitor = monitor, default = true, persistent = true })
+        table.insert(Workspace_rules, hl.workspace_rule({ workspace = "3", monitor = monitor, default = true }))
         Default_workspaces[monitor] = "3"
 
         monitor = hl.get_monitor("desc:Invalid Vendor Codename - RTK 0x0000 0x01010101").name
-        hl.workspace_rule({ workspace = "2", monitor = monitor, default = true, persistent = true })
+        table.insert(Workspace_rules, hl.workspace_rule({ workspace = "2", monitor = monitor, default = true }))
         Default_workspaces[monitor] = "2"
 
         monitor = hl.get_monitor("desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000").name
-        hl.workspace_rule({ workspace = "1", monitor = monitor, default = true, persistent = true })
+        table.insert(Workspace_rules, hl.workspace_rule({ workspace = "1", monitor = monitor, default = true }))
+    elseif Display_profile == "dual-monitor" then
+        monitor = "eDP-1"
+        table.insert(Workspace_rules, hl.workspace_rule({ workspace = "2", monitor = monitor, default = true}))
+        Default_workspaces[monitor] = "2"
+
+        monitor = hl.get_monitor("desc:Invalid Vendor Codename - RTK 0x0000 0x01010101").name
+        table.insert(Workspace_rules, hl.workspace_rule({ workspace = "1", monitor = monitor, default = true }))
     else
         hl.monitor({
             output = "eDP-1",

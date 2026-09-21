@@ -23,6 +23,8 @@ hl.on("window.title", function(w)
         local monitor = "eDP-1"
         if Display_profile == "home-office" then
             monitor = hl.get_monitor("desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000").name
+        elseif Display_profile == "dual-monitor" then
+            monitor = hl.get_monitor("desc:Invalid Vendor Codename - RTK 0x0000 0x01010101").name
         end
         hl.workspace_rule({
             workspace = workspace,
@@ -37,11 +39,13 @@ hl.on("window.title", function(w)
         local monitor = "eDP-1"
         if Display_profile == "home-office" then
             monitor = hl.get_monitor("desc:Dell Inc. DELL C2422HE 5W1XYG3").name
+        elseif Display_profile == "dual-monitor" then
+            monitor = "eDP-1"
         end
-        hl.workspace_rule({
+        table.insert(Default_workspaces, hl.workspace_rule({
             workspace = workspace,
             monitor = monitor,
-        })
+        }))
         hl.dispatch(hl.dsp.window.move({
             window = w,
             workspace = workspace,

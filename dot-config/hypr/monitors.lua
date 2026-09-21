@@ -45,6 +45,21 @@ local function setup_monitors()
             scale = 1,
             cm = "srgb",
         })
+    elseif Display_profile == "dual-monitor" then
+        hl.monitor({
+            output = "desc:Invalid Vendor Codename - RTK 0x0000 0x01010101",
+            mode = "2560x1600@144.00Hz",
+            position = "0x0",
+            scale = 1.67,
+            cm = "srgb",
+        })
+
+        hl.monitor({
+            output = "eDP-1",
+            position = "128x960",
+            scale = 1.5,
+            cm = "srgb",
+        })
     else
         hl.monitor({
             output = "eDP-1",
