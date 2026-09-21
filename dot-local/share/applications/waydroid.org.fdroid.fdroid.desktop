@@ -6,6 +6,7 @@ Icon=/home/abulujayn/.local/share/waydroid/data/icons/org.fdroid.fdroid.png
 Categories=X-WayDroid-App;
 X-Purism-FormFactor=Workstation;Mobile;
 Actions=app-settings;
+NoDisplay=true
 
 [Desktop Action app-settings]
 Name=App Settings
