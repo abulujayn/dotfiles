@@ -21,3 +21,5 @@ histfile
 
 # Neovim runtime state, plugin installs, and generated caches
 dot-config/nvim/.netrwhist
+
+dot-local/share/fonts/.uuid
