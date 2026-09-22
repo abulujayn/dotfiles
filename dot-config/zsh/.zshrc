@@ -4,9 +4,6 @@ export ZSH="$ZDOTDIR/plugins/oh-my-zsh"
 export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 export GENCOMPL_FPATH="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/completion-generator"
 export GENCOMPL_PY="${GENCOMPL_PY:-python3}"
-export XCURSOR_THEME="Nordzy-cursors"
-export XCURSOR_SIZE=24
-export XCURSOR_PATH="$HOME/.local/share/icons:/usr/share/icons"
 HISTFILE="$ZDOTDIR/histfile"
 HISTSIZE=1000
 SAVEHIST=5000
@@ -79,3 +76,8 @@ source_rpm_file zsh-syntax-highlighting zsh-syntax-highlighting.zsh
 alias vi=nvim
 alias vim=nvim
 setopt HIST_FCNTL_LOCK HIST_IGNORE_DUPS HIST_IGNORE_SPACE SHARE_HISTORY NO_APPEND_HISTORY NO_EXTENDED_HISTORY NO_HIST_EXPIRE_DUPS_FIRST NO_HIST_FIND_NO_DUPS NO_HIST_IGNORE_ALL_DUPS NO_HIST_SAVE_NO_DUPS
+
+export XCURSOR_THEME="Nordzy-cursors"
+export XCURSOR_SIZE=24
+export XCURSOR_PATH="$HOME/.local/share/icons:/usr/share/icons"
+export LIBVIRT_DEFAULT_URI="qemu:///system"
