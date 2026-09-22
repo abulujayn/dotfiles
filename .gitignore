@@ -23,3 +23,5 @@ histfile
 dot-config/nvim/.netrwhist
 
 dot-local/share/fonts/.uuid
+
+dot-config/noctalia/90-idle-power.toml
