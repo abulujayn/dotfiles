@@ -1,8 +1,9 @@
 hl.env("XCURSOR_THEME", "Nordzy-cursors")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("XCURSOR_PATH", "/home/abulujayn/.local/share/icons:/usr/share/icons")
+hl.env("XCURSOR_PATH", "$HOME/.local/share/icons:/usr/share/icons")
 hl.env("GTK_CSD", "0")
+hl.env("GNUPGHOME", "$HOME/.local/share/gnupg")
 
 hl.config({
     general = {

@@ -80,4 +80,8 @@ setopt HIST_FCNTL_LOCK HIST_IGNORE_DUPS HIST_IGNORE_SPACE SHARE_HISTORY NO_APPEN
 export XCURSOR_THEME="Nordzy-cursors"
 export XCURSOR_SIZE=24
 export XCURSOR_PATH="$HOME/.local/share/icons:/usr/share/icons"
+
 export LIBVIRT_DEFAULT_URI="qemu:///system"
+
+export GOPATH="$HOME/.local/share/go"
+export GNUPGHOME="$HOME/.local/share/gnupg"
