@@ -22,24 +22,30 @@ function Apply_workspace_rules()
         monitor = "eDP-1"
         table.insert(Workspace_rules, hl.workspace_rule({ workspace = "4", monitor = monitor, default = true }))
         Default_workspaces[monitor] = "4"
+        hl.dispatch(hl.dsp.workspace.move({ workspace = "4", monitor = monitor }))
 
         monitor = hl.get_monitor("desc:Dell Inc. DELL C2422HE 5W1XYG3").name
         table.insert(Workspace_rules, hl.workspace_rule({ workspace = "3", monitor = monitor, default = true }))
         Default_workspaces[monitor] = "3"
+        hl.dispatch(hl.dsp.workspace.move({ workspace = "3", monitor = monitor }))
 
         monitor = hl.get_monitor("desc:Invalid Vendor Codename - RTK 0x0000 0x01010101").name
         table.insert(Workspace_rules, hl.workspace_rule({ workspace = "2", monitor = monitor, default = true }))
         Default_workspaces[monitor] = "2"
+        hl.dispatch(hl.dsp.workspace.move({ workspace = "2", monitor = monitor }))
 
         monitor = hl.get_monitor("desc:KOGAN AUSTRALIA PTY LTD KAMN32RT1SA 0000000000000").name
         table.insert(Workspace_rules, hl.workspace_rule({ workspace = "1", monitor = monitor, default = true }))
+        hl.dispatch(hl.dsp.workspace.move({ workspace = "1", monitor = monitor }))
     elseif Display_profile == "dual-monitor" then
         monitor = "eDP-1"
         table.insert(Workspace_rules, hl.workspace_rule({ workspace = "2", monitor = monitor, default = true }))
         Default_workspaces[monitor] = "2"
+        hl.dispatch(hl.dsp.workspace.move({ workspace = "2", monitor = monitor }))
 
         monitor = hl.get_monitor("desc:Invalid Vendor Codename - RTK 0x0000 0x01010101").name
         table.insert(Workspace_rules, hl.workspace_rule({ workspace = "1", monitor = monitor, default = true }))
+        hl.dispatch(hl.dsp.workspace.move({ workspace = "1", monitor = monitor }))
     else
         hl.monitor({
             output = "eDP-1",
