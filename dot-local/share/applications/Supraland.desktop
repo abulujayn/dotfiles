@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=hackmud
+Name=Supraland
 Comment=Play this game on Steam
-Exec=steam steam://rungameid/469920
-Icon=steam_icon_469920
+Exec=steam steam://rungameid/813630
+Icon=steam
 Terminal=false
 Type=Application
 Categories=Game;
