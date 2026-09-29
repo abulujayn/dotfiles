@@ -44,9 +44,13 @@ glyph = "toggle-right"
 [widget.tailscale]
 type = "abulujayn/tailscale:status"
 
+[widget.pkgupdates]
+type = "abulujayn/dnf-updates:count"
+label = ""
+
 [bar.default]
 radius = 0
 margin_ends = 0
-start = ["workspaces", "clipboard", "notifications", "tray"]
+start = ["workspaces", "pkgupdates", "clipboard", "notifications", "tray"]
 center = ["weather", "spacer", "clock", "spacer"]
 end    = ["memory_label", "memory", "divider2", "cpu_label", "cpu", "cpu_temp", "divider", "tailscale", "network", "bluetooth", "battery", "control-center"]
