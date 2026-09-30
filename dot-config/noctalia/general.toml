@@ -18,6 +18,8 @@ auto_sync = true
 
 [lockscreen]
 fingerprint = true
+transition = ["stripes"]
+transition_duration = 250
 
 [location]
 address = "Canberra, Australia"
