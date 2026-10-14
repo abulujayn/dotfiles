@@ -54,3 +54,5 @@ margin_ends = 0
 start = ["workspaces", "pkgupdates", "clipboard", "notifications", "tray"]
 center = ["weather", "spacer", "clock", "spacer"]
 end    = ["memory_label", "memory", "divider2", "cpu_label", "cpu", "cpu_temp", "divider", "tailscale", "network", "bluetooth", "battery", "control-center"]
+shadow = false
+thickness = 24
