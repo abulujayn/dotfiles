@@ -9,9 +9,9 @@ hl.config({
     general = {
         layout = "scrolling",
 
-        border_size = 2,
-        gaps_in = 3,
-        gaps_out = 9,
+        border_size = 1,
+        gaps_in = 0,
+        gaps_out = 0,
         col = {
             active_border = "rgba(81a1c1ff)"
         },
@@ -23,9 +23,6 @@ hl.config({
         follow_min_visible = 1.0,
         wrap_focus = false,
         focus_fit_method = true,
-    },
-    decoration = {
-        rounding = 0
     },
     input = {
         touchpad = {
