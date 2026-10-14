@@ -85,3 +85,5 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 export GOPATH="$HOME/.local/share/go"
 export GNUPGHOME="$HOME/.local/share/gnupg"
+
+export TZ=$(timedatectl show -p Timezone --value)
