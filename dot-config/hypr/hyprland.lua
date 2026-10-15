@@ -37,6 +37,11 @@ hl.config({
     },
 })
 
+hl.device({
+    name = "elan06b0:00-04f3:3327-touchpad",
+    sensitivity = .35
+})
+
 require("windows")
 require("workspaces")
 require("monitors")
