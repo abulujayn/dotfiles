@@ -56,7 +56,7 @@ local function setup_monitors()
 
         hl.monitor({
             output = "eDP-1",
-            position = "128x960",
+            position = "0x960",
             scale = 1.25,
             cm = "srgb",
         })
