@@ -49,14 +49,14 @@ local function setup_monitors()
         hl.monitor({
             output = "desc:Invalid Vendor Codename - RTK 0x0000 0x01010101",
             mode = "2560x1600@144.00Hz",
-            position = "0x0",
+            position = "0x-960",
             scale = 1.67,
             cm = "srgb",
         })
 
         hl.monitor({
             output = "eDP-1",
-            position = "0x960",
+            position = "0x0",
             scale = 1.25,
             cm = "srgb",
         })
