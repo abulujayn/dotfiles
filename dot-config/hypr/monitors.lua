@@ -20,7 +20,7 @@ local function setup_monitors()
         hl.monitor({
             output = "eDP-1",
             position = "6016x831",
-            scale = 1.5,
+            scale = 1.25,
             cm = "srgb",
         })
 
@@ -57,14 +57,14 @@ local function setup_monitors()
         hl.monitor({
             output = "eDP-1",
             position = "0x0",
-            scale = 1.25,
+            scale = 1,
             cm = "srgb",
         })
     else
         hl.monitor({
             output = "eDP-1",
             position = "0x0",
-            scale = 1.25,
+            scale = 1,
             cm = "srgb",
         })
     end
